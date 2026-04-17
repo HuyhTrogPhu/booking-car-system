@@ -1,0 +1,16 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: discover-service
+  # Nếu bạn có dùng config-service, hãy import nó ở đây, nếu không thì bỏ qua phần config
+#  config:
+#    import: optional:config-server:http://localhost:8888
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false

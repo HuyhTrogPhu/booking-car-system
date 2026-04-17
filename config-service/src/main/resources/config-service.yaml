@@ -1,0 +1,14 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          # Dựa vào cây thư mục của bạn, config-folder nằm ngang hàng với config-service
+          search-locations: file:../config-folder/

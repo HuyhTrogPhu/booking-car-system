@@ -1,0 +1,33 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: booking-service
+
+  config:
+    import: "optional:configserver:http://localhost:8888" # Trở về Config Service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/booking_service_of_booking_system?createDatabaseIfNotExist=true
+    username: root
+    password: 18032003
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  #  flyway:
+  #    enabled: true
+  #    # Đường dẫn này giúp Flyway tìm thấy file V1__init_booking.sql
+  #    locations: classpath:db/migration
+  #    baseline-on-migrate: true
+
+  logging:
+    level:
+      org.flywaydb: DEBUG
+      org.springframework.boot.autoconfigure.flyway: DEBUG
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true

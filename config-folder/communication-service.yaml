@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: communication-service
+  config:
+    import: "optional:configserver:http://localhost:8888" # Trỏ về Config Service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/communication_service_of_booking_system?createDatabaseIfNotExist=true
+    username: root
+    password: 18032003
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  logging:
+    level:
+      org.flywaydb: DEBUG
+      org.springframework.boot.autoconfigure.flyway: DEBUG
+
+eureka:
+  client:
+    serviceUrl:
+      # Đây là địa chỉ mặc định của máy chủ Eureka
+      defaultZone: http://localhost:8761/eureka/
+    # Cho phép service này đăng ký mình lên Eureka
+    register-with-eureka: true
+    fetch-registry: true

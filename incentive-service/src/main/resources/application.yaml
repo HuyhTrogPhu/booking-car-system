@@ -1,0 +1,20 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: incentive-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/incentive_service_of_booking_system?createDatabaseIfNotExist=true
+    username: root
+    password: 18032003
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  config:
+    import: "optional:configserver:http://localhost:8888"
+
+  logging:
+    level:
+      org.flywaydb: DEBUG
+      org.springframework.boot.autoconfigure.flyway: DEBUG
+

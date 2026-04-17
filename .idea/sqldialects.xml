@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/booking-service/src/main/resources/db/migration/V1__init_booking.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/communication-service/src/main/resources/db/migration/V1__init_communication.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/identity-service/src/main/resources/db/migration/V1__init_identity.sql" dialect="GenericSQL" />
+  </component>
+</project>

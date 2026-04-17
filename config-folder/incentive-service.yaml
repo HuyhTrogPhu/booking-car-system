@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: incentive-service
+config:
+  import: "optional:configserver:http://localhost:8888" # Trỏ về Config Service
+
+eureka:
+  client:
+    serviceUrl:
+      # Đây là địa chỉ mặc định của máy chủ Eureka
+      defaultZone: http://localhost:8761/eureka/
+    # Cho phép service này đăng ký mình lên Eureka
+    register-with-eureka: true
+    fetch-registry: true
