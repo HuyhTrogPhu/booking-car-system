@@ -29,10 +29,10 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll() // Cho phép Register/Login
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/api/driver/**").hasAnyRole("DRIVER", "ADMIN")
-                        .requestMatchers("/api/customer/**").hasAnyRole("CUSTOMER", "ADMIN")
+                        .requestMatchers("/booking-car-system/auth/**").permitAll() // Cho phép Register/Login
+                        .requestMatchers("/booking-car-system/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/booking-car-system/driver/**").hasAnyRole("DRIVER", "ADMIN")
+                        .requestMatchers("/booking-car-system/customer/**").hasAnyRole("CUSTOMER", "ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

@@ -7,6 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface CustomerMapper {
 
@@ -15,4 +17,6 @@ public interface CustomerMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "user", ignore = true)
     void updateCustomerRequest(CustomerUpdateRequest request, @MappingTarget Customer customer);
+
+    List<CustomerResponse> toCustomerResponseList(List<Customer> customers);
 }
