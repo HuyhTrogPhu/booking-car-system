@@ -6,6 +6,7 @@ import com.bookingcar.dto.response.ApiResponse;
 import com.bookingcar.dto.response.DriverResponse;
 import com.bookingcar.identityservice.service.DriverService;
 import com.bookingcar.identityservice.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,12 +26,12 @@ public class DriverController {
     }
 
     @GetMapping("/{driverId}")
-    public ApiResponse<DriverResponse> findDriverById(@PathVariable("driverId") Long driverId) {
+    public ApiResponse<DriverResponse> findDriverById(@PathVariable("driverId") @Valid Long driverId) {
         return ApiResponse.<DriverResponse>builder().result(driverService.getDriverById(driverId)).build();
     }
 
     @PutMapping("/{driverId}")
-    public ApiResponse<DriverResponse> updateDriver(@RequestBody DriverUpdateRequest driverUpdateRequest, @PathVariable("driverId") Long driverId) {
+    public ApiResponse<DriverResponse> updateDriver(@RequestBody @Valid DriverUpdateRequest driverUpdateRequest, @PathVariable("driverId") Long driverId) {
         return ApiResponse.<DriverResponse>builder().result(driverService.updateDriver(driverUpdateRequest, driverId)).build();
     }
 }

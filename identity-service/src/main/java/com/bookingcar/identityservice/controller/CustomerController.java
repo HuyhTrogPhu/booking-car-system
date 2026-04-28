@@ -6,6 +6,7 @@ import com.bookingcar.dto.response.CustomerResponse;
 import com.bookingcar.dto.response.DriverResponse;
 import com.bookingcar.identityservice.entity.Customer;
 import com.bookingcar.identityservice.service.CustomerService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,12 +26,12 @@ public class CustomerController {
     }
 
     @GetMapping("/{customerId}")
-    public ApiResponse<CustomerResponse> getCustomerById(@PathVariable("customerId") Long customerId) {
+    public ApiResponse<CustomerResponse> getCustomerById(@PathVariable("customerId") @Valid Long customerId) {
         return ApiResponse.<CustomerResponse>builder().result(customerService.getCustomerById(customerId)).build();
     }
 
     @PutMapping("/{customerId}")
-    public ApiResponse<CustomerResponse> updateCustomer(@RequestBody CustomerUpdateRequest customerUpdateRequest, @PathVariable("customerId") Long customerId) {
+    public ApiResponse<CustomerResponse> updateCustomer(@RequestBody @Valid CustomerUpdateRequest customerUpdateRequest, @PathVariable("customerId") Long customerId) {
         return ApiResponse.<CustomerResponse>builder().result(customerService.updateCustomer(customerUpdateRequest, customerId)).build();
     }
 }
