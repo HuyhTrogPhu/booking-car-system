@@ -1,6 +1,7 @@
 package com.bookingcar.identityservice.config;
 
 import com.bookingcar.identityservice.entity.User;
+import lombok.Getter;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -10,16 +11,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Getter
 public class SecurityDetails implements UserDetails {
 
     private User user;
 
     public SecurityDetails(User user) {
         this.user = user;
-    }
-
-    public User getUser() {
-        return this.user;
     }
 
     @Override

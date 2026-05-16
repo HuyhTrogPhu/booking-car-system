@@ -4,5 +4,8 @@
     <file url="file://$PROJECT_DIR$/booking-service/src/main/resources/db/migration/V1__init_booking.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/communication-service/src/main/resources/db/migration/V1__init_communication.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/identity-service/src/main/resources/db/migration/V1__init_identity.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/incentive-service/src/main/resources/db/migration/V1__init_incentive.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/payment-service/src/main/resources/db/migration/V1__init_payment.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/promotion-service/src/main/resources/db/migration/V1__init_promotion.sql" dialect="GenericSQL" />
   </component>
 </project>

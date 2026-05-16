@@ -7,6 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication(scanBasePackages = {
         "com.bookingcar.identityservice",
         "com.bookingcar.utilities",
+        "com.bookingcar.config",
         "com.bookingcar.commonservice"
 })
 @EnableDiscoveryClient
