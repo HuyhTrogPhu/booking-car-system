@@ -12,16 +12,15 @@ import java.sql.Date;
 @Setter
 @Entity
 @Data
-@EqualsAndHashCode(callSuper = true)
 @Table(name = "customer")
-public class Customer extends User {
+public class Customer {
 
     @Id
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "last_name")

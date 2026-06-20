@@ -20,7 +20,11 @@ public enum ErrorCode {
     EMAIL_INVALID(1009, "Email không được để trống và phải đúng định dạng"),
     FIRST_NAME_BLANK(1010, "Tên (First Name) không được để trống"),
     LAST_NAME_BLANK(1011, "Họ (Last Name) không được để trống"),
-    PHONE_INVALID(1012, "Số điện thoại không được để trống và phải gồm 10 chữ số");
+    PHONE_INVALID(1012, "Số điện thoại không được để trống và phải gồm 10 chữ số"),
+
+    //Token
+    END_TOKEN(1013, "Phiên đăng nhập đã hết hạng vui lòng đăng nhập lại"),
+    MISSING_COOKIE(1014, "Không tìm thấy phiên đăng nhập");
 
     private final int code;
     private final String message;

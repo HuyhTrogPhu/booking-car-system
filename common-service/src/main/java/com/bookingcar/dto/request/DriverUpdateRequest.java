@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 @Data
 public class DriverUpdateRequest {
 
+    private String avatar;
     private String licenseNumber;
     private String status;
     private Integer myTrip;
