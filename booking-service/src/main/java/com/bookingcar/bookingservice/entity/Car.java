@@ -15,5 +15,7 @@ public class Car {
     private String carNumber;
     @Column(name = "car_type")
     private String carType;
+    @Column(name = "route_ic")
+    private Long routeId;
     private Integer seats;
 }
