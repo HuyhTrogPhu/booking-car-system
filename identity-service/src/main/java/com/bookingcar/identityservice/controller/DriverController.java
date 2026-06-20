@@ -31,7 +31,8 @@ public class DriverController {
     }
 
     @PutMapping("/{driverId}")
-    public ApiResponse<DriverResponse> updateDriver(@RequestBody @Valid DriverUpdateRequest driverUpdateRequest, @PathVariable("driverId") Long driverId) {
+    public ApiResponse<DriverResponse> updateDriver(@RequestBody @Valid DriverUpdateRequest driverUpdateRequest,
+                                                    @PathVariable("driverId") Long driverId) {
         return ApiResponse.<DriverResponse>builder().result(driverService.updateDriver(driverUpdateRequest, driverId)).build();
     }
 }

@@ -26,7 +26,7 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/booking-car-system/auth/**", "/register").permitAll()// Cho phép Register/Login
+                        .requestMatchers("/booking-car-system/auth/**", "/register", "/login", "/refresh").permitAll()// Cho phép Register/Login
                         .requestMatchers("/error").permitAll()
                         .requestMatchers("/booking-car-system/admin/**").hasRole("ADMIN")
                         .requestMatchers("/booking-car-system/driver/**").hasAnyRole("DRIVER", "ADMIN")

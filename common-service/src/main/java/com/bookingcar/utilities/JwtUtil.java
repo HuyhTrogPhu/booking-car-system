@@ -19,8 +19,8 @@ public class JwtUtil {
     // Khóa bí mật (Cần dài tối thiểu 32 ký tự)
     private final String SECRET_KEY = "BookingCarSystem_SecretKey_MustBeLongEnough";
 
-    // Tách riêng thời gian: Access Token , Refresh Token
-    private final long ACCESS_EXPIRATION_TIME = 1800000; // 30 * 60 * 1000
+    // Tách riêng thời gian: Access Token 10p , Refresh Token 7d
+    private final long ACCESS_EXPIRATION_TIME = 600000; // 30 * 60 * 1000
     private final long REFRESH_EXPIRATION_TIME = 604800000; // 7 * 24 * 60 * 60 * 1000
 
     private Key getSigningKey() {
@@ -66,9 +66,11 @@ public class JwtUtil {
                 .getBody();
     }
 
-    public boolean validateToken(String token) {
+    public Boolean validateToken(String token, String username) {
         try {
-            return !getClaims(token).isEmpty();
+            // Kiểm tra username trong token có khớp với username đăng nhập không
+            // và kiểm tra token đã hết hạn hay chưa
+            return (username.equals(extractUsername(token)) && !isTokenExpired(token));
         } catch (Exception e) {
             return false;
         }

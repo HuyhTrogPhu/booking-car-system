@@ -18,10 +18,10 @@ public class SecurityDetailsService implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String loginInput) throws UsernameNotFoundException {
 
-        User user = userRepository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
+        User user = userRepository.findByUsernameOrEmail(loginInput, loginInput)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + loginInput));
 
         return new SecurityDetails(user);
     }

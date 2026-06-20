@@ -41,7 +41,6 @@ public class UserService {
 
         Role role = roleRepository.findById(userCreationRequest.getRole())
                 .orElseThrow(() -> new AppException(ErrorCode.ROLE_NOT_EXISTED));
-
         User user = userMapper.toUser(userCreationRequest);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(role);
